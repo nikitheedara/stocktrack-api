@@ -1,5 +1,5 @@
 # ---- Build stage: full SDK, only used to compile ----
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:11.0 AS build
 WORKDIR /src
 
 # Restore first in its own layer so package downloads are cached when only code changes.
