@@ -10,7 +10,7 @@ COPY src/ src/
 RUN dotnet publish src/StockTrack.Api/StockTrack.Api.csproj -c Release -o /app/publish --no-restore /p:UseAppHost=false
 
 # ---- Runtime stage: small ASP.NET image, no SDK or source code ----
-FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:11.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
