@@ -1,0 +1,12 @@
+# Overrides for running on EC2: send API logs to CloudWatch and restart containers after a reboot.
+services:
+  db:
+    restart: unless-stopped
+  api:
+    restart: unless-stopped
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ap-southeast-2
+        awslogs-group: /stocktrack/api
+        awslogs-create-group: "true"
